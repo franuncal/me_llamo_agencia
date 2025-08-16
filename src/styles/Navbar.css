@@ -1,0 +1,123 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 0 0 0;
+  background: #e6e0d3;
+  font-family: "Montserrat", Arial, sans-serif;
+  position: relative;
+}
+.navbar-group {
+  display: flex;
+  gap: 80px;
+}
+.navbar-group-left {
+  margin-left: 80px;
+}
+.navbar-group-right {
+  margin-right: 80px;
+}
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar-title {
+  font-size: 2.2rem;
+  /* font-weight: 500; */
+  color: #222;
+  text-decoration: none;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.navbar-title:hover {
+  color: #e74c3c;
+}
+.navbar-subtitle {
+  font-size: 0.95rem;
+  color: #222;
+  /* font-weight: 400; */
+  letter-spacing: 1px;
+  margin-top: 2px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.navbar-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 120px;
+  position: relative;
+}
+.navbar-curve {
+  width: 600px;
+  height: 180px;
+  border-bottom: 1.5px solid #d1ccc1;
+  border-radius: 0 0 300px 300px;
+  position: absolute;
+  left: -240px;
+  top: -60px;
+  z-index: 0;
+}
+.navbar-line {
+  width: 1.5px;
+  height: 120px;
+  background: #d1ccc1;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1200px) {
+  .navbar-group-left {
+    margin-left: 24px;
+  }
+  .navbar-group-right {
+    margin-right: 24px;
+  }
+  .navbar-group {
+    gap: 32px;
+  }
+  .navbar-curve {
+    width: 320px;
+    left: -100px;
+    top: -40px;
+    height: 90px;
+  }
+  .navbar-line {
+    height: 60px;
+  }
+}
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0 0 0;
+  }
+  .navbar-group {
+    gap: 16px;
+  }
+  .navbar-group-left,
+  .navbar-group-right {
+    margin: 0;
+  }
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+  .navbar-subtitle {
+    font-size: 0.8rem;
+  }
+  .navbar-divider {
+    width: 60px;
+  }
+  .navbar-curve {
+    width: 120px;
+    left: -30px;
+    top: -10px;
+    height: 30px;
+  }
+  .navbar-line {
+    height: 30px;
+  }
+}
