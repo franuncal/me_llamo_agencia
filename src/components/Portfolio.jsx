@@ -4,10 +4,10 @@ import "../styles/Portfolio.css";
 const works = [
   {
     id: "cure",
-    letter: "C.",
+    letter: "A.",
     image:
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80",
-    title: "Cure",
+    title: "Marca A",
     subtitle: "Boutique promo website",
     description:
       "Unique nail and wax boutique that curated a build-your-own style menu.",
@@ -18,10 +18,10 @@ const works = [
   },
   {
     id: "rafal",
-    letter: "R.",
+    letter: "B.",
     image:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    title: "Rafal Bojar",
+    title: "Marca B",
     subtitle: "Portfolio website",
     description:
       "Folio of a polish photographer and videographer, who loves to create visual stories.",
@@ -29,7 +29,7 @@ const works = [
     link: "#",
     bgColor: "#e6e0d3",
     textColor: "#222",
-    rightBgColor: "#df8d12ff",
+    // rightBgColor: "#df8d12ff",
     rightTextColor: "#fff",
   },
 ];
@@ -58,7 +58,7 @@ const Portfolio = () => (
           <div className="portfolio-tags">{work.tags}</div>
           <div className="portfolio-desc">{work.description}</div>
           <a href={work.link} className="portfolio-link">
-            Check full case <span>+</span>
+            Proyecto Completo <span>+</span>
           </a>
         </div>
       </div>

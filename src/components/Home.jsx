@@ -13,8 +13,10 @@ const Home = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const intervalRef = useRef(null);
 
+  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 900;
+
   const handleMouseEnter = () => {
-    if (window.innerWidth < 900) return; // Solo desktop
+    if (!isDesktop) return;
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       setImgIndex((prev) => (prev + 1) % unsplashImages.length);
@@ -32,40 +34,68 @@ const Home = () => {
   return (
     <section className="home">
       <div className="home-center">
-        {/* Desktop: título cruzando la imagen */}
-        <div className="home-names-centered desktop-only">
-          <span className="home-title">Me llamo agencia</span>
-        </div>
-        {/* Mobile: título dividido arriba y abajo */}
-        <div className="home-names-centered home-names-top mobile-only">
-          <span className="home-title home-title-left">Me llamo</span>
-        </div>
+        {/* Desktop layout */}
         <div
-          className="home-image"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          className="desktop-only"
+          style={{ display: "flex", width: "100%" }}
         >
-          <img
-            src={unsplashImages[imgIndex]}
-            alt="Portada principal"
-            className="image-main"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "8px",
-              transition: "filter 0.2s",
-            }}
-          />
+          <div className="home-column">
+            <div className="home-title-block">
+              <span className="home-title">Me llamo</span>
+              <span className="home-title">agencia</span>
+            </div>
+            <div className="home-services">
+              <span>Redes</span>
+              <span>Branded content</span>
+              <span>Producciones</span>
+            </div>
+          </div>
+          <div className="home-column">
+            <div
+              className="home-image"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <img
+                src={unsplashImages[imgIndex]}
+                alt="Portada principal"
+                className="image-main"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                  transition: "filter 0.2s",
+                }}
+              />
+            </div>
+          </div>
         </div>
-        {/* Solo mostrar este en mobile */}
-        <div className="home-names-centered home-names-bottom mobile-only">
-          <span className="home-title home-title-right">agencia</span>
-        </div>
-        <div className="home-services">
-          <span>Redes</span>
-          <span>Branded content</span>
-          <span>Producciones</span>
+        {/* Mobile/Tablet layout */}
+        <div className="mobile-only" style={{ width: "100%" }}>
+          <div className="home-title-block mobile-title-block">
+            <span className="home-title">Me llamo</span>
+            <span className="home-title">agencia</span>
+          </div>
+          <div className="home-image">
+            <img
+              src={unsplashImages[0]}
+              alt="Portada principal"
+              className="image-main"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "8px",
+                transition: "filter 0.2s",
+              }}
+            />
+          </div>
+          <div className="home-services">
+            <span>Redes</span>
+            <span>Branded content</span>
+            <span>Producciones</span>
+          </div>
         </div>
       </div>
       <div className="home-footer">
