@@ -5,7 +5,8 @@ const Services = () => (
   <section className="services-section">
     <div className="services-title">SERVICIOS</div>
     <div className="services-center">
-      <div className="service star">*</div>
+      {/* <div className="service star">*</div> */}
+      <div className="service star">✧</div>
     </div>
     <div className="services-columns">
       <div className="services-col left">

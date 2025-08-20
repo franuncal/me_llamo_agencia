@@ -13,8 +13,8 @@ const works = [
       "Unique nail and wax boutique that curated a build-your-own style menu.",
     tags: "ART DIRECTION / CONTENT CREATION / BRANDING / INTERFACE DESIGN / INTERACTION DESIGN",
     link: "#",
-    bgColor: "#f7f6f3",
-    textColor: "#222",
+    bgColor: "#803131ff",
+    textColor: "#f4f4f4",
   },
   {
     id: "rafal",
@@ -27,9 +27,9 @@ const works = [
       "Folio of a polish photographer and videographer, who loves to create visual stories.",
     tags: "ART DIRECTION / INTERFACE DESIGN / INTERACTION DESIGN",
     link: "#",
-    bgColor: "#e6e0d3",
-    textColor: "#222",
-    // rightBgColor: "#df8d12ff",
+    bgColor: "#aeaaa2ff",
+    textColor: "#fff",
+    rightBgColor: "#333333", // color oscuro completo
     rightTextColor: "#fff",
   },
 ];
@@ -37,8 +37,15 @@ const works = [
 const Portfolio = () => (
   <section className="portfolio-section">
     {works.map((work) => (
-      <div className={`portfolio-block ${work.id}`} key={work.id}>
-        <div className="portfolio-left" style={{ background: work.bgColor }}>
+      <div
+        className={`portfolio-block ${work.id}`}
+        key={work.id}
+        style={{ background: work.rightBgColor || work.bgColor }}
+      >
+        <div
+          className="portfolio-left"
+          style={{ background: "transparent", color: work.textColor }}
+        >
           <img src={work.image} alt={work.title} className="portfolio-img" />
           <div className="portfolio-title">{work.title}</div>
           <div className="portfolio-subtitle">{work.subtitle}</div>
@@ -48,11 +55,10 @@ const Portfolio = () => (
         </div>
         <div
           className="portfolio-right"
-          style={
-            work.rightBgColor
-              ? { background: work.rightBgColor, color: work.rightTextColor }
-              : { background: work.bgColor, color: work.textColor }
-          }
+          style={{
+            background: "transparent",
+            color: work.rightTextColor || work.textColor,
+          }}
         >
           <div className="portfolio-case-title">{work.title}</div>
           <div className="portfolio-tags">{work.tags}</div>

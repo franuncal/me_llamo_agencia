@@ -1,7 +1,7 @@
 /* Fondo y layout general */
 .services-section {
   max-width: 100%;
-  min-height: 70vh;
+  min-height: 90vh;
   background: #f7f6f3;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@
   font-style: italic;
 }
 .service.underline {
-  border-bottom: 4px solid #e74c3c;
+  border-bottom: 4px solid #803131ff;
   display: inline-block;
   padding-bottom: 2px;
 }
@@ -81,7 +81,7 @@
   color: #222;
 }
 .service.star {
-  color: #e74c3c;
+  color: #803131ff;
   font-size: 2.6rem;
   text-align: center;
   font-weight: bold;
@@ -114,6 +114,9 @@
    DESKTOP ≤ 1200px
 ========================= */
 @media (max-width: 1200px) {
+  .services-section {
+    min-height: 60vh;
+  }
   .services-columns {
     max-width: 98vw;
   }
@@ -217,7 +220,7 @@
     display: flex !important;
   }
   .service.big {
-    font-size: 1.3rem; /* usé la versión mobile más lógica */
+    font-size: 1.8rem; /* usé la versión mobile más lógica */
   }
 }
 

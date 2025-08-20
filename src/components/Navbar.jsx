@@ -15,9 +15,9 @@ function Navbar() {
         </div>
         <div className="navbar-item">
           <a href="#work" className="navbar-title">
-            Proyectos
+            Work
           </a>
-          <div className="navbar-subtitle">ALGUNOS PROYECTOS</div>
+          <div className="navbar-subtitle">PROYECTOS</div>
         </div>
       </div>
       <div className="navbar-divider navbar-desktop-only">
@@ -27,15 +27,15 @@ function Navbar() {
       <div className="navbar-group navbar-group-right navbar-desktop-only">
         <div className="navbar-item">
           <a href="#workflow" className="navbar-title">
-            Procesos
+            Proceso
           </a>
-          <div className="navbar-subtitle">FLUJO DE TRABAJO</div>
+          <div className="navbar-subtitle">MÉTODO</div>
         </div>
         <div className="navbar-item">
           <a href="#contact" className="navbar-title">
             Contacto
           </a>
-          <div className="navbar-subtitle">PARA COLABORACIÓN</div>
+          <div className="navbar-subtitle">COLABORACIÓN</div>
         </div>
       </div>
       <button
@@ -54,10 +54,10 @@ function Navbar() {
             Work
           </a>
           <a href="#workflow" className="navbar-title">
-            Workflow
+            Procesos
           </a>
           <a href="#contact" className="navbar-title">
-            Contact me
+            Contacto
           </a>
         </div>
       )}
