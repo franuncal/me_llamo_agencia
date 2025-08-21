@@ -1,4 +1,3 @@
-/* --- CONTACT --- */
 .contact-section {
   max-width: 100%;
   min-height: 90vh;
@@ -34,7 +33,7 @@
 
 .contact-email {
   font-family: "Playfair Display", serif;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #803131ff;
   font-weight: 400;
   text-align: center;

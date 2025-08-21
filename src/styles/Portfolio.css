@@ -61,23 +61,6 @@
   background: transparent;
 }
 
-.portfolio-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.7rem;
-  font-weight: 400;
-  text-align: left;
-  color: inherit;
-  margin-bottom: 0;
-}
-
-.portfolio-subtitle {
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  text-align: left;
-  color: inherit;
-  margin-top: 12px;
-}
-
 .portfolio-case-title {
   font-family: "Montserrat", sans-serif;
   font-size: 2.1rem;
@@ -158,6 +141,10 @@
   }
   .portfolio-letter {
     font-size: 3.2rem;
+  }
+
+  .portfolio-link {
+    margin-bottom: 1.7rem;
   }
 }
 
