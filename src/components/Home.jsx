@@ -73,8 +73,8 @@ const Home = () => {
         >
           <div className="home-column">
             <div className="home-title-block" ref={titleBlockRef}>
-              <span className="home-title">Me llamo</span>
-              <span className="home-title">agencia</span>
+              <span className="home-title">ME LLAMO</span>
+              <span className="home-title">AGENCIA</span>
             </div>
             <div className="home-services" ref={servicesRef}>
               <span>Redes</span>
@@ -108,8 +108,8 @@ const Home = () => {
         {/* Mobile/Tablet layout */}
         <div className="mobile-only" style={{ width: "100%" }}>
           <div className="home-title-block mobile-title-block">
-            <span className="home-title">Me llamo</span>
-            <span className="home-title">agencia</span>
+            <span className="home-title">ME LLAMO</span>
+            <span className="home-title">AGENCIA</span>
           </div>
           <div className="home-image">
             <img

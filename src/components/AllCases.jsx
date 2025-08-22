@@ -1,52 +1,58 @@
+// // AllCases.jsx
 // import React, { useEffect, useRef } from "react";
-// import gsap from "gsap";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import "../styles/AllCases.css";
 
+// gsap.registerPlugin(ScrollTrigger);
+
 // const AllCases = () => {
+//   const sectionRef = useRef(null);
 //   const plusRef = useRef(null);
 //   const proyectosRef = useRef(null);
 
 //   useEffect(() => {
-//     const handleScroll = () => {
-//       const section = document.querySelector(".allcases-section");
-//       if (!section) return;
-//       const rect = section.getBoundingClientRect();
-//       if (rect.top < window.innerHeight && rect.bottom > 0) {
-//         // Animar el +
-//         gsap.to(plusRef.current, {
-//           rotate: 360,
-//           duration: 1.2,
-//           ease: "power2.out",
-//           overwrite: true,
-//         });
-//         // Subrayar 'Proyectos'
-//         gsap.to(proyectosRef.current, {
-//           borderBottom: "3px solid #f7f6f3",
-//           color: "#f7f6f3",
-//           duration: 0.6,
-//           overwrite: true,
-//         });
-//       } else {
-//         // Resetear animaciones
-//         gsap.to(plusRef.current, {
-//           rotate: 0,
-//           duration: 0.6,
-//           overwrite: true,
-//         });
-//         gsap.to(proyectosRef.current, {
-//           borderBottom: "none",
-//           color: "#222",
-//           duration: 0.6,
-//           overwrite: true,
-//         });
-//       }
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
+//     const ctx = gsap.context(() => {
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: sectionRef.current,
+//           start: "top 80%",
+//           toggleActions: "play none none reverse",
+//         },
+//       });
+
+//       // Animar "+"
+//       tl.fromTo(
+//         plusRef.current,
+//         { rotate: 0, opacity: 0, scale: 0.5 },
+//         { rotate: 360, opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }
+//       )
+//         // Subrayar y resaltar "Proyectos"
+//         .fromTo(
+//           proyectosRef.current,
+//           { color: "#222", borderBottom: "0px solid transparent" },
+//           {
+//             color: "#f7f6f3",
+//             borderBottom: "3px solid #f7f6f3",
+//             duration: 0.6,
+//             ease: "power2.out",
+//           },
+//           "-=0.6"
+//         )
+//         // Animación del párrafo
+//         .fromTo(
+//           ".allcases-text",
+//           { y: 30, opacity: 0 },
+//           { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
+//           "-=0.3"
+//         );
+//     }, sectionRef);
+
+//     return () => ctx.revert();
 //   }, []);
 
 //   return (
-//     <section className="allcases-section">
+//     <section className="allcases-section" ref={sectionRef}>
 //       <div className="allcases-title">
 //         <span ref={plusRef} className="allcases-plus">
 //           +
@@ -82,8 +88,17 @@ const AllCases = () => {
   const sectionRef = useRef(null);
   const plusRef = useRef(null);
   const proyectosRef = useRef(null);
+  const underlineRef = useRef(null);
 
   useEffect(() => {
+    if (
+      !sectionRef.current ||
+      !plusRef.current ||
+      !proyectosRef.current ||
+      !underlineRef.current
+    )
+      return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -99,17 +114,19 @@ const AllCases = () => {
         { rotate: 0, opacity: 0, scale: 0.5 },
         { rotate: 360, opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }
       )
-        // Subrayar y resaltar "Proyectos"
+        // Aparece "Proyectos"
         .fromTo(
           proyectosRef.current,
-          { color: "#222", borderBottom: "0px solid transparent" },
-          {
-            color: "#f7f6f3",
-            borderBottom: "3px solid #f7f6f3",
-            duration: 0.6,
-            ease: "power2.out",
-          },
+          { color: "#222" },
+          { color: "#f7f6f3", duration: 0.6, ease: "power2.out" },
           "-=0.6"
+        )
+        // Subrayado animado
+        .fromTo(
+          underlineRef.current,
+          { width: "0%" },
+          { width: "100%", duration: 0.8, ease: "power2.out" },
+          "-=0.3"
         )
         // Animación del párrafo
         .fromTo(
@@ -118,6 +135,47 @@ const AllCases = () => {
           { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
           "-=0.3"
         );
+
+      // ✅ Hover para el subrayado
+      const handleMouseEnter = () => {
+        gsap.to(underlineRef.current, {
+          backgroundColor: "#803131ff",
+          duration: 0.4,
+          ease: "power2.out",
+        });
+        gsap.to(proyectosRef.current, {
+          color: "#803131ff",
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      };
+
+      const handleMouseLeave = () => {
+        gsap.to(underlineRef.current, {
+          backgroundColor: "#f7f6f3",
+          duration: 0.4,
+          ease: "power2.out",
+        });
+        gsap.to(proyectosRef.current, {
+          color: "#f7f6f3",
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      };
+
+      proyectosRef.current.addEventListener("mouseenter", handleMouseEnter);
+      proyectosRef.current.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        proyectosRef.current?.removeEventListener(
+          "mouseenter",
+          handleMouseEnter
+        );
+        proyectosRef.current?.removeEventListener(
+          "mouseleave",
+          handleMouseLeave
+        );
+      };
     }, sectionRef);
 
     return () => ctx.revert();
@@ -132,7 +190,7 @@ const AllCases = () => {
         <span ref={proyectosRef} className="allcases-proyectos">
           Proyectos
         </span>
-        <div className="allcases-underline" />
+        <div ref={underlineRef} className="allcases-underline" />
       </div>
       <div className="allcases-thanks">
         <span className="allcases-text">
