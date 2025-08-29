@@ -1,0 +1,375 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.about.page {
+  position: relative;
+  padding: 0;
+  background-color: #fff;
+  color: #333333;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Layout flexbox */
+.about .d-f {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+  position: relative;
+}
+
+/* Sección superior */
+.about .top {
+  padding: 120px 7vw;
+  position: relative;
+}
+
+/* Contenedor de imagen */
+.about .top .img {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.show-outer,
+.show-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.about .top img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Título y texto principal */
+.about .top article {
+  width: 45%;
+  position: relative;
+  max-width: 600px;
+}
+
+.about .top h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+  line-height: 1.2;
+}
+
+.about .top h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.about .top .h4 {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about .top .strong {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.about .top p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.about .top p span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Sección descripción */
+.about .desc {
+  padding: 80px 7vw;
+  text-align: center;
+  background: #f8f8f8;
+}
+
+.about .desc article {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.about .desc .h4 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.about .desc p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Banner de marcas */
+.collabs {
+  width: 100%;
+  overflow: hidden;
+  padding: 60px 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.collaborations {
+  display: flex;
+  list-style: none;
+  animation: scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.collaborations li {
+  flex: 0 0 auto;
+  padding: 0 40px;
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reconocimientos */
+.recognitions {
+  padding: 80px 7vw;
+}
+
+.recognitions .title h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.recognitions h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.awards {
+  list-style: none;
+}
+
+.awards li {
+  margin-bottom: 1.5rem;
+}
+
+.awards strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.awards span {
+  color: #666;
+}
+
+/* Footer */
+footer {
+  padding: 120px 7vw;
+  background: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+footer .back-home {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+footer .back-home svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+footer .back-home:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+footer .back-home:hover svg {
+  transform: translateX(-3px);
+}
+
+footer .big {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+  display: block;
+  font-weight: 700;
+  text-align: center;
+}
+
+footer .content {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+}
+
+footer .img {
+  width: 50%;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+footer .img:hover {
+  transform: translateY(-10px);
+}
+
+footer .img img,
+footer .img video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+footer .link {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 0, 0, 0.9);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+footer .link:hover {
+  background: #fff;
+  color: #000;
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+footer .top {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer .line {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  flex-direction: column;
+}
+
+footer .line .left,
+footer .line .right {
+  display: block;
+  margin: 0.2rem 0;
+}
+
+footer .spacer {
+  display: none;
+}
+
+footer .red {
+  color: #ff0000;
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  .about .d-f {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about .top .img,
+  .about .top article {
+    width: 100%;
+  }
+
+  .about .top h1 {
+    font-size: 2rem;
+  }
+
+  .about .top .strong {
+    font-size: 2rem;
+  }
+
+  .about .desc {
+    padding: 60px 20px;
+  }
+
+  .about .desc p {
+    font-size: 1.1rem;
+  }
+
+  .collaborations li {
+    padding: 0 20px;
+    font-size: 1.2rem;
+  }
+
+  footer .content {
+    flex-direction: column;
+  }
+
+  footer .img,
+  footer .top {
+    width: 100%;
+  }
+
+  footer .big {
+    font-size: 2rem;
+  }
+
+  footer .line {
+    font-size: 1.5rem;
+  }
+}

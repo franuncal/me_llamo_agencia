@@ -14,28 +14,27 @@ const Home = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const split = new SplitText(taglineRef.current, { type: "words" });
-
+      
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 1 },
+        defaults: { ease: "power3.out", duration: 1 }
       });
 
       tl.from(split.words, {
         y: 50,
         opacity: 0,
         stagger: 0.1,
-        duration: 0.8,
+        duration: 0.8
       })
-        .fromTo(
-          videoRef.current,
-          { opacity: 0 },
-          { opacity: 0.4, duration: 1.5 },
-          "-=0.5"
-        )
-        .to(scrollHintRef.current, {
-          opacity: 1,
-          duration: 0.5,
-          delay: 0.5,
-        });
+      .fromTo(videoRef.current, 
+        { opacity: 0 },
+        { opacity: 0.4, duration: 1.5 },
+        "-=0.5"
+      )
+      .to(scrollHintRef.current, {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.5
+      });
     });
 
     return () => ctx.revert();
@@ -67,15 +66,9 @@ const Home = () => {
         <span ref={scrollHintRef} className="scroll-hint">
           <span className="scroll-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.72 146.05">
-              <g
-                className="line"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M76.59 65.56c-14.28 4.8-28.49 2.92-38.4.44-7.19-1.81-14.45-4-20.93-7.74C8.09 53 .57 44.07.5 33a30.41 30.41 0 0 1 9.06-21.18A39.25 39.25 0 0 1 30.34 1.25c12.77-2.35 26.27.94 37.19 8s19.32 17.56 24.79 29.34c6.7 14.4 9.47 30.69 8.8 46.5-.82 19.77-3.7 45.27-18.09 60.25" />
-                <path d="M84.94 136.12c.52 3.39-1.07 6.16-2.07 9.43a75 75 0 0 0 7.67-4.44" />
+              <g className="line" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M76.59 65.56c-14.28 4.8-28.49 2.92-38.4.44-7.19-1.81-14.45-4-20.93-7.74C8.09 53 .57 44.07.5 33a30.41 30.41 0 0 1 9.06-21.18A39.25 39.25 0 0 1 30.34 1.25c12.77-2.35 26.27.94 37.19 8s19.32 17.56 24.79 29.34c6.7 14.4 9.47 30.69 8.8 46.5-.82 19.77-3.7 45.27-18.09 60.25"/>
+                <path d="M84.94 136.12c.52 3.39-1.07 6.16-2.07 9.43a75 75 0 0 0 7.67-4.44"/>
               </g>
             </svg>
           </span>

@@ -1,0 +1,190 @@
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import "../styles/About.css";
+
+const About = () => {
+  const imageRef = useRef(null);
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const recognitionsRef = useRef(null);
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" }
+    });
+
+    tl.from(imageRef.current, {
+      x: -100,
+      opacity: 0,
+      duration: 1
+    })
+    .from(titleRef.current.children, {
+      x: 50,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.8
+    }, "-=0.5")
+    .from(descriptionRef.current.children, {
+      x: 50,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.8
+    }, "-=0.3")
+    .from(recognitionsRef.current.children, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.6
+    }, "-=0.4");
+  }, []);
+
+  return (
+    <section className="about page">
+      <div className="about">
+        <div className="d-f top">
+          <div className="img" ref={imageRef}>
+            <div className="show-outer">
+              <div className="show-inner">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Me Llamo Agency Creative Team" 
+                  width="801" 
+                  height="887"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <article ref={titleRef}>
+            <h1>ME.LLAMO</h1>
+            <h2>un poco sobre nosotros</h2>
+            <strong className="h4">Simplemente sobre</strong>
+            <p className="strong">LO QUE HACEMOS</p>
+            <p>
+              <span>Nuestra experiencia, premios</span>
+              <span>colaboraciones, y</span>
+              <span>nuestro propio estilo,</span>
+              <span>¡por supuesto!</span>
+            </p>
+          </article>
+        </div>
+
+        <div className="d-f desc">
+          <div className="spacer"></div>
+          <article ref={descriptionRef}>
+            <div className="blur-container">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 556 556" className="svg-blur">
+                <defs>
+                  <filter id="blur" width="114.5%" height="114.5%" x="-7.3%" y="-7.3%" filterUnits="objectBoundingBox">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="12"></feGaussianBlur>
+                  </filter>
+                </defs>
+                <circle cx="1496" cy="1585" r="248" fill="#F2F2F2" fillRule="evenodd" filter="url(#blur)" opacity=".6" transform="translate(-1218 -1307)"></circle>
+              </svg>
+            </div>
+            <strong className="h4">Entonces,</strong>
+            <p>
+              <span className="line">Somos ME.LLAMO — una agencia creativa con base en desarrollo y diseño.</span>
+              <span className="line">Nos apasiona todo lo relacionado con el diseño de productos y visual,</span>
+              <span className="line">proyectos móviles y web, así como branding, tipografía y animaciones.</span>
+              <span className="line">Con nuestra sólida experiencia en la industria, sabemos cómo ayudar a los clientes a resolver casos de negocio reales y hacer crecer sus empresas mediante el pensamiento de diseño.</span>
+            </p>
+          </article>
+        </div>
+
+        <div ref={recognitionsRef}>
+          <div className="d-f">
+            <div className="spacer">
+              <button aria-label="showreel" className="showreel">
+                <span>showreel</span>
+              </button>
+            </div>
+            
+            <article className="recognitions">
+              <div className="title">
+                <h3>Reconocimientos</h3>
+              </div>
+              
+              <div>
+                <h4>Premios <sup>x3</sup></h4>
+                <ul className="awards">
+                  <li>
+                    <strong>Proyecto X</strong>
+                    <span>Premio del día, Excelencia móvil</span>
+                  </li>
+                  <li>
+                    <strong>Proyecto Y</strong>
+                    <span>Premio a la innovación</span>
+                  </li>
+                  <li>
+                    <strong>Proyecto Z</strong>
+                    <span>Premio al diseño</span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div className="collabs">
+            <ul className="collaborations">
+              <li>Cliente 1</li>
+              <li>Cliente 2</li>
+              <li>Cliente 3</li>
+              <li>Cliente 4</li>
+              <li>Cliente 5</li>
+              {/* Repetidos para scroll infinito */}
+              <li>Cliente 1</li>
+              <li>Cliente 2</li>
+              <li>Cliente 3</li>
+              <li>Cliente 4</li>
+              <li>Cliente 5</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer ref={footerRef}>
+        <strong className="big">No más palabras</strong>
+        <div className="content">
+          <div className="img">
+            <img 
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              alt="ME.LLAMO team collaboration" 
+              width="766" 
+              height="966" 
+            />
+            <video 
+              src="https://player.vimeo.com/external/492934593.hd.mp4?s=911d02b9482af0e1dc0ce0f11bcb6c7df3e71d96&profile_id=175"
+              poster="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              autoPlay
+              playsInline
+              loop
+              muted
+              preload="auto"
+              crossOrigin="anonymous"
+            />
+            <a href="/contact" className="link">Contáctanos</a>
+          </div>
+          
+          <div className="top">
+            <div>
+              <p className="line">
+                <span className="left">hagamos</span>
+                <span className="spacer"></span>
+                <span className="right">un increíble</span>
+              </p>
+              <p className="line">
+                <span className="left red">proyecto</span>
+                <span className="spacer"></span>
+                <span className="right">juntos</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  );
+};
+
+export default About;

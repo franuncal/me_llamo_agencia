@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -24,15 +25,15 @@ function Navbar() {
 
       <div className="navbar-group navbar-group-left navbar-desktop-only">
         <div className="navbar-item">
-          <a href="#info" className="navbar-title">
+          <Link to="/about" className="navbar-title">
             Info
-          </a>
+          </Link>
           <div className="navbar-subtitle">SOBRE MÍ</div>
         </div>
         <div className="navbar-item">
-          <a href="#work" className="navbar-title">
+          <Link to="/portfolio" className="navbar-title">
             Work
-          </a>
+          </Link>
           <div className="navbar-subtitle">PROYECTOS</div>
         </div>
       </div>
@@ -44,9 +45,9 @@ function Navbar() {
 
       <div className="navbar-group navbar-group-right navbar-desktop-only">
         <div className="navbar-item">
-          <a href="#workflow" className="navbar-title">
+          <Link to="/services" className="navbar-title">
             Proceso
-          </a>
+          </Link>
           <div className="navbar-subtitle">MÉTODO</div>
         </div>
         <div className="navbar-item">
